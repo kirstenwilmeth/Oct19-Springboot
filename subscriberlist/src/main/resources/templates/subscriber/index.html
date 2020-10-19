@@ -4,30 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscriber List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Welcome to our awesome site!</h1>
-    <h3>Subscribe to our List. Sign-up below!</h3>
+    <div class="jumbotron" style="background-color: #FFEEEE;">
+        <h1 class="display-4">Join the Cozy Collective!</h1>
+        <p class="lead">Sign-up to our monthly newsletter below!</p>
+        <hr class="my-4">
+        <form action="#" th:action="@{/}" th:object="${subscriber}" method="post">
+            <div class="form-group">
+              <label for="exampleInputEmail1">First Name:</label>
+              <input type="text" class="form-control" aria-describedby="emailHelp" th:field="*{firstName}" />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Last Name:</label>
+              <input type="text" th:field="*{lastName}" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Username:</label>
+                <input type="text" th:field="*{userName}"  class="form-control" id="exampleInputPassword1">
+              </div>
+            
+            <button type="submit" class="btn btn-info btn-outline-secondary" style="background-color: white; color: black;">Submit</button>
+          </form>
+      </div> 
 
-    <p>Please us the form below to sugn up as a subscriber:</p>
-    <form action="#" th:action="@{/}" th:object="${subscriber}" method="post">
-    <table>
-        <tr>
-        <td>First Name:</td>
-        <td><input type="text" th:field="*{firstName}" /></td>
-    </tr>
-    <tr>
-        <td>Last Name:</td>
-        <td><input type="text" th:field="*{lastName}" /></td>
-    </tr>
-    <tr>
-        <td>Username:</td>
-        <td><input type="text" th:field="*{userName}" /></td>
-    </tr>
-    <tr>
-        <td><button type="submit">Submit Your Name</button></td>
-    </tr>
-    </table>
-    </form>
 </body>
 </html>
